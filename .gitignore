@@ -1,0 +1,7 @@
+.vscode/
+build/
+dist/
+obs-bin/
+obs-src/
+qt/
+tools/
