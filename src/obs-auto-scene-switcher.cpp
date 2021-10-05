@@ -155,7 +155,11 @@ public:
 				timer->setSingleShot(true);
 				connect(timer, &QTimer::timeout, this, [this](){
 					// obs_frontend_streaming_stop();
-					obs_frontend_set_current_scene(obs_get_source_by_name(scenes_combo_box_to->currentText().toUtf8().data()));
+					obs_source_t *dist = obs_get_source_by_name(scenes_combo_box_to->currentText().toUtf8().data());
+
+					obs_frontend_set_current_scene(dist);
+					obs_source_release(dist);
+
 					stopTimer();
 				});
 				timer->start(time_spin_box->value() * 1000);
