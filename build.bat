@@ -1,6 +1,6 @@
 @echo off
-rd /s /q build
-rd /s /q dist
+if exist build rd /s /q build
+if exist dist rd /s /q dist
 
 setlocal
 set /A Build32=0
